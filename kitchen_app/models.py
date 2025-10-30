@@ -1,6 +1,9 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 
+from kitchen_management import settings
+
+
 class Cook(AbstractUser):
     years_of_experience = models.IntegerField(default=0)
 
@@ -28,7 +31,7 @@ class Dish(models.Model):
     price = models.DecimalField(decimal_places=2, max_digits=10)
     dish_type = models.ForeignKey(DishType, on_delete=models.CASCADE)
     ingredients = models.ManyToManyField(Ingredient)
-    cooks = models.ManyToManyField(Cook)
+    cooks = models.ManyToManyField(settings.AUTH_USER_MODEL)
 
     def __str__(self):
         return self.name

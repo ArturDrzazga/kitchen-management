@@ -1,6 +1,20 @@
+from django.contrib.auth import get_user_model
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 
+from .models import Cook, DishType, Dish
+
+
 @login_required
 def index(request):
-    pass
+    num_cooks = get_user_model().objects.all().count()
+    num_dish_types = DishType.objects.all().count()
+    num_dishes = Dish.objects.all().count()
+
+    context = {
+        'num_cooks': num_cooks,
+        'num_dish_types': num_dish_types,
+        'num_dishes': num_dishes,
+    }
+
+    return render(request, "kitchen_app/index", context=context)

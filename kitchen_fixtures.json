@@ -1,0 +1,262 @@
+[
+  {
+    "model": "kitchen_app.dishtype",
+    "pk": 1,
+    "fields": {
+      "name": "Appetizer"
+    }
+  },
+  {
+    "model": "kitchen_app.dishtype",
+    "pk": 2,
+    "fields": {
+      "name": "Main Course"
+    }
+  },
+  {
+    "model": "kitchen_app.dishtype",
+    "pk": 3,
+    "fields": {
+      "name": "Soup"
+    }
+  },
+  {
+    "model": "kitchen_app.dishtype",
+    "pk": 4,
+    "fields": {
+      "name": "Dessert"
+    }
+  },
+  {
+    "model": "kitchen_app.dishtype",
+    "pk": 5,
+    "fields": {
+      "name": "Salad"
+    }
+  },
+  {
+    "model": "kitchen_app.ingredient",
+    "pk": 1,
+    "fields": {
+      "name": "Chicken Breast"
+    }
+  },
+  {
+    "model": "kitchen_app.ingredient",
+    "pk": 2,
+    "fields": {
+      "name": "Rice"
+    }
+  },
+  {
+    "model": "kitchen_app.ingredient",
+    "pk": 3,
+    "fields": {
+      "name": "Broccoli"
+    }
+  },
+  {
+    "model": "kitchen_app.ingredient",
+    "pk": 4,
+    "fields": {
+      "name": "Onion"
+    }
+  },
+  {
+    "model": "kitchen_app.ingredient",
+    "pk": 5,
+    "fields": {
+      "name": "Tomato Paste"
+    }
+  },
+  {
+    "model": "kitchen_app.ingredient",
+    "pk": 6,
+    "fields": {
+      "name": "Cream"
+    }
+  },
+  {
+    "model": "kitchen_app.ingredient",
+    "pk": 7,
+    "fields": {
+      "name": "Lettuce"
+    }
+  },
+  {
+    "model": "kitchen_app.ingredient",
+    "pk": 8,
+    "fields": {
+      "name": "Croutons"
+    }
+  },
+  {
+    "model": "kitchen_app.ingredient",
+    "pk": 9,
+    "fields": {
+      "name": "Flour"
+    }
+  },
+  {
+    "model": "kitchen_app.ingredient",
+    "pk": 10,
+    "fields": {
+      "name": "Chocolate"
+    }
+  },
+  {
+    "model": "kitchen_app.ingredient",
+    "pk": 11,
+    "fields": {
+      "name": "Beef"
+    }
+  },
+  {
+    "model": "kitchen_app.ingredient",
+    "pk": 12,
+    "fields": {
+      "name": "Potatoes"
+    }
+  },
+  {
+    "model": "kitchen_app.cook",
+    "pk": 1,
+    "fields": {
+      "password": "pbkdf2_sha256$260000$chef_secret1$hashed_value_example",
+      "last_login": null,
+      "is_superuser": true,
+      "username": "Gordon_Head",
+      "first_name": "Gordon",
+      "last_name": "Ramsay",
+      "email": "gordon@kitchen.com",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2015-01-10T08:00:00Z",
+      "years_of_experience": 15,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "kitchen_app.cook",
+    "pk": 2,
+    "fields": {
+      "password": "pbkdf2_sha256$260000$chef_secret2$hashed_value_example",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "Julia_Sous",
+      "first_name": "Julia",
+      "last_name": "Childs",
+      "email": "julia@kitchen.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2020-03-25T12:30:00Z",
+      "years_of_experience": 7,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "kitchen_app.cook",
+    "pk": 3,
+    "fields": {
+      "password": "pbkdf2_sha256$260000$chef_secret3$hashed_value_example",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "Jamie_Prep",
+      "first_name": "Jamie",
+      "last_name": "Oliver",
+      "email": "jamie@kitchen.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2022-09-01T09:15:00Z",
+      "years_of_experience": 3,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "kitchen_app.dish",
+    "pk": 1,
+    "fields": {
+      "name": "Chicken Curry with Rice",
+      "description": "Tender chicken pieces cooked in a rich, creamy curry sauce, served with basmati rice.",
+      "price": "45.00",
+      "dish_type": 2,
+      "ingredients": [1, 2, 4, 5, 6],
+      "cooks": [1, 2]
+    }
+  },
+  {
+    "model": "kitchen_app.dish",
+    "pk": 2,
+    "fields": {
+      "name": "Classic Caesar Salad",
+      "description": "Crisp romaine lettuce, croutons, and parmesan cheese with a traditional Caesar dressing.",
+      "price": "28.50",
+      "dish_type": 5,
+      "ingredients": [7, 8],
+      "cooks": [2, 3]
+    }
+  },
+  {
+    "model": "kitchen_app.dish",
+    "pk": 3,
+    "fields": {
+      "name": "Broccoli Cream Soup",
+      "description": "Smooth and velvety broccoli soup, finished with a touch of heavy cream.",
+      "price": "19.90",
+      "dish_type": 3,
+      "ingredients": [3, 4, 6],
+      "cooks": [3]
+    }
+  },
+  {
+    "model": "kitchen_app.dish",
+    "pk": 4,
+    "fields": {
+      "name": "Chocolate Lava Cake",
+      "description": "Warm chocolate cake with a molten chocolate center, dusted with icing sugar.",
+      "price": "15.00",
+      "dish_type": 4,
+      "ingredients": [9, 10],
+      "cooks": [1]
+    }
+  },
+  {
+    "model": "kitchen_app.dish",
+    "pk": 5,
+    "fields": {
+      "name": "Garlic Breadsticks",
+      "description": "Toasted breadsticks brushed with garlic butter and herbs.",
+      "price": "12.50",
+      "dish_type": 1,
+      "ingredients": [9],
+      "cooks": [2]
+    }
+  },
+  {
+    "model": "kitchen_app.dish",
+    "pk": 6,
+    "fields": {
+      "name": "Roast Beef with Potatoes",
+      "description": "Slow-roasted beef served with oven-baked potatoes and gravy.",
+      "price": "55.99",
+      "dish_type": 2,
+      "ingredients": [11, 12, 4],
+      "cooks": [1]
+    }
+  },
+  {
+    "model": "kitchen_app.dish",
+    "pk": 7,
+    "fields": {
+      "name": "Caprese Skewers",
+      "description": "Cherry tomatoes, fresh mozzarella, and basil drizzled with balsamic glaze.",
+      "price": "18.00",
+      "dish_type": 1,
+      "ingredients": [3],
+      "cooks": [3]
+    }
+  }
+]
