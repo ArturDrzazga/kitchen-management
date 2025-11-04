@@ -5,7 +5,7 @@ from django.shortcuts import render
 from .models import Cook, DishType, Dish
 
 
-@login_required
+
 def index(request):
     num_cooks = get_user_model().objects.all().count()
     num_dish_types = DishType.objects.all().count()
@@ -17,4 +17,4 @@ def index(request):
         'num_dishes': num_dishes,
     }
 
-    return render(request, "kitchen_app/index", context=context)
+    return render(request, "kitchen/index.html", context=context)

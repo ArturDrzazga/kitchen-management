@@ -12,9 +12,6 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 
 from pathlib import Path
 
-from django.contrib.auth.models import User
-
-from kitchen_app.models import Cook
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -41,6 +38,9 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "kitchen_app",
+    "crispy_bootstrap4",
+    "crispy_forms"
 ]
 
 MIDDLEWARE = [
@@ -66,12 +66,15 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+                "kitchen_app.context_processors.cfg_assets_root",
             ],
         },
     },
 ]
 
 WSGI_APPLICATION = "kitchen_management.wsgi.application"
+
+CRISPY_TEMPLATE_PACK = "bootstrap4"
 
 
 # Database
@@ -84,7 +87,7 @@ DATABASES = {
     }
 }
 
-AUTH_USER_MODEL = Cook
+AUTH_USER_MODEL = "kitchen_app.Cook"
 
 
 # Password validation
@@ -122,6 +125,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 STATIC_URL = "static/"
+
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]
+
+ASSETS_ROOT =  "/static/assets"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
