@@ -46,14 +46,16 @@
         <td>
           <ul class="list-unstyled">
             {% for cook in dish.cooks.all %}
-              <li>{{ cook.first_name }}{{ cook.last_name }}</li>
+              <li>{{ cook.first_name }} {{ cook.last_name }}</li>
             {% empty %}
               <li>No cooks yet.</li>
             {% endfor %}
           </ul>
         </td>
         <td>
-          Update
+          <a href="{% url "kitchen_app:dish-update" pk=dish.id %}" class="btn-outline-light text-white">
+            Update
+          </a>
         </td>
         <td>
           Delete

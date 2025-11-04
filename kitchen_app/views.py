@@ -56,3 +56,9 @@ class DishesCreateView(generic.CreateView):
     model = Dish
     form_class = DishForm
     success_url = reverse_lazy("kitchen_app:dish-list")
+
+
+class DishesUpdateView(generic.UpdateView):
+    model = Dish
+    form_class = DishForm
+    success_url = reverse_lazy("kitchen_app:dish-list")
