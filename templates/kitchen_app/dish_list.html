@@ -1,10 +1,10 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1 class="text-white pt-3 mt-n5">Dishes</h1>
+    <h1 class="text-white pt-3 mt-7">Dishes</h1>
   <div class="table-responsive">
   {% if dish_list %}
-    <table class="table text-white border my-3 align-middle">
+    <table class="table text-white border my-4 align-middle">
       <tr class="fs-4">
         <th>ID</th>
         <th>Name</th>
@@ -58,7 +58,9 @@
           </a>
         </td>
         <td>
-          Delete
+          <a href="{% url "kitchen_app:dish-delete" pk=dish.id %}" class="btn-outline-light text-white">
+            Delete
+          </a>
         </td>
       </tr>
     {% endfor %}
