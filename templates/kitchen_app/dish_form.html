@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+{% load static %}
+
+{% block content %}
+  <h1 class="text-white pt-3 mt-7">{{ object|yesno:"Update,Create" }} dish</h1>
+  <div class="container py-5">
+    <div class="row justify-content-center">
+      <div class="col-lg-6 col-md-8">
+        <div class="card p-4 shadow-lg">
+          <form action="" method="post" novalidate>
+            {% csrf_token %}
+            {{ form|crispy }}
+
+            <input type="submit" value="Submit" class="btn btn-primary mt-5">
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

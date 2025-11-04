@@ -3,7 +3,10 @@ from django.urls import path
 from kitchen_app.views import (index,
                                TypesOfDishesListView,
                                TypesOfDishesCreateView,
-                               TypesOfDishesUpdateView, TypesOfDishesDeleteView, DishesListView)
+                               TypesOfDishesUpdateView,
+                               TypesOfDishesDeleteView,
+                               DishesListView,
+                               DishesCreateView)
 
 urlpatterns = [
     path("", index, name="index"),
@@ -25,6 +28,10 @@ urlpatterns = [
     path("dishes/",
          DishesListView.as_view(),
          name="dish-list"),
+
+    path("dishes/create/",
+         DishesCreateView.as_view(),
+         name="dish-create"),
 ]
 
 app_name = "kitchen_app"
