@@ -27,7 +27,9 @@
           </a>
         </td>
         <td>
-          Delete
+          <a href="{% url "kitchen_app:dishtype-delete" pk=dish_type.id %}" class="btn-outline-light text-white">
+            Delete
+          </a>
         </td>
       </tr>
     {% endfor %}
