@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1 class="text-white pt-3 mt-n5">Dishes</h1>
+  <div class="table-responsive">
+  {% if dish_list %}
+    <table class="table text-white border my-3 align-middle">
+      <tr class="fs-4">
+        <th>ID</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Dish type</th>
+        <th>Ingredients</th>
+        <th>Cooks</th>
+        <th>Update</th>
+        <th>Delete</th>
+      </tr>
+
+    {% for dish in dish_list %}
+      <tr class="fs-6">
+        <td>
+          {{ dish.id }}
+        </td>
+        <td>
+          {{ dish.name }}
+        </td>
+        <td style="white-space: normal !important; max-width: 200px;">
+            {{ dish.description }}
+        </td>
+        <td>
+          {{ dish.price }}
+        </td>
+        <td>
+          {{ dish.dish_type.name }}
+        </td>
+        <td>
+          <ul class="list-unstyled">
+            {% for ingredient in dish.ingredients.all %}
+              <li>{{ ingredient.name }}</li>
+            {% empty %}
+              <li>No ingredients yet.</li>
+            {% endfor %}
+          </ul>
+        </td>
+        <td>
+          <ul class="list-unstyled">
+            {% for cook in dish.cooks.all %}
+              <li>{{ cook.first_name }}{{ cook.last_name }}</li>
+            {% empty %}
+              <li>No cooks yet.</li>
+            {% endfor %}
+          </ul>
+        </td>
+        <td>
+          Update
+        </td>
+        <td>
+          Delete
+        </td>
+      </tr>
+    {% endfor %}
+
+    </table>
+  {% else %}
+    <h3 class="text-white pt-3 mt-5">There is no any dishes</h3>
+  {% endif %}
+
+  <a href="{% url "kitchen_app:dishtype-create" %}" class="btn btn-primary link-to-page">
+      Create new type
+    </a>
+  </div>
+{% endblock content %}
