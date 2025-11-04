@@ -41,8 +41,22 @@
 </head>
 
 <body class="{% block body_class %}{% endblock %} bg-gray-200">
+  {% include "includes/navigation.html" %}
 
-  {% block content %}{% endblock content %}
+  <div class="header-2">
+    <div class="page-header min-vh-100 relative" style="background-image: url('{{ ASSETS_ROOT }}/img/bg2.jpg')">
+      <span class="mask bg-gradient-primary opacity-4"></span>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-7 text-center mx-auto">
+
+            {% block content %}{% endblock content %}
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   {% include 'includes/scripts.html' %}
 
