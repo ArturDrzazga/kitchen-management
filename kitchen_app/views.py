@@ -4,7 +4,7 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import generic
 
-from .forms import DishTypeForm, DishForm
+from .forms import DishTypeForm, DishForm, IngredientForm
 from .models import Cook, DishType, Dish, Ingredient
 
 
@@ -68,7 +68,13 @@ class DishesDeleteView(generic.DeleteView):
     success_url = reverse_lazy("kitchen_app:dish-list")
 
 
-class IngredientListView(generic.ListView):
+class IngredientsListView(generic.ListView):
     model = Ingredient
     template_name = "kitchen_app/ingredient_list.html"
     paginate_by = 10
+
+
+class IngredientsCreateView(generic.CreateView):
+    model = Ingredient
+    form_class = IngredientForm
+    success_url = reverse_lazy("kitchen_app:ingredient-list")

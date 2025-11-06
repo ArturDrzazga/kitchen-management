@@ -32,3 +32,14 @@ class DishForm(forms.ModelForm):
             "cooks": forms.SelectMultiple(attrs={
                 "class": "custom-checkbox-list border border-dark border-2 shadow-lg"}),
         }
+
+
+class IngredientForm(forms.ModelForm):
+    class Meta:
+        model = Ingredient
+        fields = "__all__"
+
+        widgets = {
+            "name": forms.TextInput(attrs={
+                "class": "form-control form-control-lg border border-dark border-2 shadow-lg"}),
+        }
