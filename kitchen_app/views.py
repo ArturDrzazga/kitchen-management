@@ -94,3 +94,16 @@ class IngredientsDeleteView(generic.DeleteView):
 class CooksListView(generic.ListView):
     model = Cook
     paginate_by = 5
+
+
+class CooksDetailView(generic.DetailView):
+    model = Cook
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        cook_object = self.get_object()
+
+        cook_dishes = cook_object.dishes.all()
+        context["cook_dishes"] = cook_dishes
+
+        return context

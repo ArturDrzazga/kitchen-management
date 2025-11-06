@@ -18,7 +18,9 @@
           {{ cook.id }}
         </td>
         <td>
-          {{ cook.first_name }} {{ cook.last_name }}
+          <a href="{% url "kitchen_app:cook-detail" pk=cook.id %}" class="btn-outline-light text-white">
+            {{ cook.first_name }} {{ cook.last_name }}
+          </a>
         </td>
         <td>
           {{ cook.years_of_experience }}

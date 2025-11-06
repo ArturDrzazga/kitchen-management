@@ -31,7 +31,7 @@ class Dish(models.Model):
     price = models.DecimalField(decimal_places=2, max_digits=10)
     dish_type = models.ForeignKey(DishType, on_delete=models.CASCADE)
     ingredients = models.ManyToManyField(Ingredient)
-    cooks = models.ManyToManyField(settings.AUTH_USER_MODEL)
+    cooks = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name="dishes")
 
     def __str__(self):
         return self.name

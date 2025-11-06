@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+
+{% block content %}
+  <h1 class="text-white pt-3 mt-n5">Details about {{ cook.first_name }}</h1>
+  <div class="container py-5">
+    <div class="row justify-content-center">
+      <div class="col-lg-6 col-md-8">
+        <div class="card p-4 shadow-lg">
+          <p class="fs-5 fw-bold text-dark">Name: {{ cook.first_name }} {{ cook.last_name }}</p>
+          {% if cook.username %}
+            <p class="fs-5 fw-bold text-dark">Username: {{ cook.username }}</p>
+          {% endif %}
+          <p class="fs-5 fw-bold text-dark">Years of experience: {{ cook.years_of_experience }}</p>
+          <p class="fs-5 fw-bold text-dark">Dishes:</p>
+          <ul class="list-unstyled">
+            {% for dish in cook_dishes %}
+              <li class="fs-6 text-dark">{{ dish.name }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}
