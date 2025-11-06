@@ -1,7 +1,7 @@
 from django.contrib.auth import get_user_model
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy, reverse
 from django.views import generic
 
 from .forms import DishTypeForm, DishForm, IngredientForm, CookCreationForm, CookUpdateForm
@@ -118,4 +118,13 @@ class CooksCreateView(generic.CreateView):
 class CooksUpdateView(generic.UpdateView):
     model = Cook
     form_class = CookUpdateForm
+
+    def get_success_url(self):
+        cook_pk = self.object.pk
+
+        return reverse("kitchen_app:cook-detail", kwargs={"pk": cook_pk})
+
+
+class CooksDeleteView(generic.DeleteView):
+    model = Cook
     success_url = reverse_lazy("kitchen_app:cook-list")
