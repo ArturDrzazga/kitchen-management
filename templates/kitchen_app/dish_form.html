@@ -13,6 +13,15 @@
             {{ form|crispy }}
 
             <input type="submit" value="Submit" class="btn btn-primary mt-5">
+            {% if object %}
+                <a href="{% url "kitchen_app:dish-detail" pk=object.id %}" class="btn btn-secondary mt-5">
+                    Back
+                </a>
+            {% else %}
+                <a href="{% url "kitchen_app:dish-list" %}" class="btn btn-secondary mt-5">
+                    Back
+                </a>
+            {% endif %}
           </form>
         </div>
       </div>

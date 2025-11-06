@@ -25,7 +25,7 @@ def index(request):
 class TypesOfDishesListView(generic.ListView):
     model = DishType
     template_name = "kitchen_app/dishtype_list.html"
-    paginate_by = 5
+    paginate_by = 8
 
 
 class TypesOfDishesCreateView(generic.CreateView):
@@ -48,7 +48,7 @@ class TypesOfDishesDeleteView(generic.DeleteView):
 class DishesListView(generic.ListView):
     model = Dish
     template_name = "kitchen_app/dish_list.html"
-    paginate_by = 3
+    paginate_by = 5
 
 
 class DishesDetailView(generic.DetailView):
@@ -78,6 +78,12 @@ class DishesUpdateView(generic.UpdateView):
     model = Dish
     form_class = DishForm
     success_url = reverse_lazy("kitchen_app:dish-list")
+
+    def get_success_url(self):
+        dish_pk = self.object.pk
+
+        return reverse("kitchen_app:dish-detail", kwargs={"pk": dish_pk})
+
 
 
 class DishesDeleteView(generic.DeleteView):
@@ -110,7 +116,7 @@ class IngredientsDeleteView(generic.DeleteView):
 
 class CooksListView(generic.ListView):
     model = Cook
-    paginate_by = 5
+    paginate_by = 8
 
 
 class CooksDetailView(generic.DetailView):

@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1 class="text-white pt-3 mt-7">Dishes</h1>
+    <h1 class="text-white pt-3 mt-5">Dishes</h1>
   <div class="table-responsive">
   {% if dish_list %}
     <table class="table text-white border my-4 align-middle">
@@ -11,10 +11,6 @@
         <th>Description</th>
         <th>Price</th>
         <th>Dish type</th>
-        <th>Ingredients</th>
-        <th>Cooks</th>
-        <th>Update</th>
-        <th>Delete</th>
       </tr>
 
     {% for dish in dish_list %}
@@ -35,34 +31,6 @@
         </td>
         <td>
           {{ dish.dish_type.name }}
-        </td>
-        <td>
-          <ul class="list-unstyled">
-            {% for ingredient in dish.ingredients.all %}
-              <li>{{ ingredient.name }}</li>
-            {% empty %}
-              <li>No ingredients yet.</li>
-            {% endfor %}
-          </ul>
-        </td>
-        <td>
-          <ul class="list-unstyled">
-            {% for cook in dish.cooks.all %}
-              <li>{{ cook.first_name }} {{ cook.last_name }}</li>
-            {% empty %}
-              <li>No cooks yet.</li>
-            {% endfor %}
-          </ul>
-        </td>
-        <td>
-          <a href="{% url "kitchen_app:dish-update" pk=dish.id %}" class="btn-outline-light text-white">
-            Update
-          </a>
-        </td>
-        <td>
-          <a href="{% url "kitchen_app:dish-delete" pk=dish.id %}" class="btn-outline-light text-white">
-            Delete
-          </a>
         </td>
       </tr>
     {% endfor %}
