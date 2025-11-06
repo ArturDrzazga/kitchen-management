@@ -3,7 +3,7 @@
 {% load static %}
 
 {% block content %}
-  <h1 class="text-white pt-3 mt-7">Create cook</h1>
+  <h1 class="text-white pt-3 mt-7">{{ object|yesno:"Update,Create" }} cook</h1>
   <div class="container py-5">
     <div class="row justify-content-center">
       <div class="col-lg-6 col-md-8">

@@ -4,7 +4,7 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import generic
 
-from .forms import DishTypeForm, DishForm, IngredientForm, CookCreationForm
+from .forms import DishTypeForm, DishForm, IngredientForm, CookCreationForm, CookUpdateForm
 from .models import Cook, DishType, Dish, Ingredient
 
 
@@ -112,4 +112,10 @@ class CooksDetailView(generic.DetailView):
 class CooksCreateView(generic.CreateView):
     model = Cook
     form_class = CookCreationForm
+    success_url = reverse_lazy("kitchen_app:cook-list")
+
+
+class CooksUpdateView(generic.UpdateView):
+    model = Cook
+    form_class = CookUpdateForm
     success_url = reverse_lazy("kitchen_app:cook-list")
