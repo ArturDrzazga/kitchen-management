@@ -19,7 +19,7 @@ class DishTypeForm(forms.ModelForm):
 class DishForm(forms.ModelForm):
     class Meta:
         model = Dish
-        fields = ["name", "description", "price", "dish_type", "ingredients"]
+        fields = "__all__"
 
         widgets = {
             "name": forms.TextInput(attrs={
@@ -32,6 +32,8 @@ class DishForm(forms.ModelForm):
                 "class": "form-control form-control-lg border border-dark border-2 shadow-lg"}),
             "ingredients": forms.CheckboxSelectMultiple(attrs={
                 "class": "form-control border border-dark border-2 shadow-lg"},),
+            "cooks": forms.SelectMultiple(attrs={
+                "class": "form-control border border-dark border-2 shadow-lg"}, ),
         }
 
     def clean_price(self):
