@@ -84,3 +84,8 @@ class IngredientsUpdateView(generic.UpdateView):
     model = Ingredient
     form_class = IngredientForm
     success_url = reverse_lazy("kitchen_app:ingredient-list")
+
+
+class IngredientsDeleteView(generic.DeleteView):
+    model = Ingredient
+    success_url = reverse_lazy("kitchen_app:ingredient-list")
