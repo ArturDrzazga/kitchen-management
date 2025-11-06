@@ -31,8 +31,15 @@ class DishForm(forms.ModelForm):
             "dish_type": forms.Select(attrs={
                 "class": "form-control form-control-lg border border-dark border-2 shadow-lg"}),
             "ingredients": forms.CheckboxSelectMultiple(attrs={
-                "class": "custom-checkbox-list border border-dark border-2 shadow-lg"},),
+                "class": "form-control border border-dark border-2 shadow-lg"},),
         }
+
+    def clean_price(self):
+        return validate_price(self.cleaned_data["price"])
+
+def validate_price(price):
+    if price <= 0:
+        raise ValidationError("Price must be greater than 0")
 
 
 class IngredientForm(forms.ModelForm):
@@ -55,6 +62,23 @@ class CookCreationForm(UserCreationForm):
             "last_name",
         )
 
+        widgets = {
+            "username": forms.TextInput(attrs={
+                "class": "form-control form-control-lg border border-dark border-2 shadow-lg"}),
+            "years_of_experience": forms.NumberInput(attrs={
+                "type": "number",
+                "min": 0,
+                "class": "form-control form-control-lg border border-dark border-2 shadow-lg"}),
+            "first_name": forms.TextInput(attrs={
+                "class": "form-control form-control-lg border border-dark border-2 shadow-lg"}),
+            "last_name": forms.TextInput(attrs={
+                "class": "form-control form-control-lg border border-dark border-2 shadow-lg"}),
+            "password": forms.PasswordInput(attrs={
+                "class": "form-control form-control-lg border border-dark border-2 shadow-lg"}),
+            "password2": forms.PasswordInput(attrs={
+                "class": "form-control form-control-lg border border-dark border-2 shadow-lg"}),
+        }
+
     def clean_years_of_experience(self):
         return validate_years_of_experience(self.cleaned_data["years_of_experience"])
 
@@ -64,6 +88,16 @@ class CookUpdateForm(forms.ModelForm):
         model = Cook
         fields = ["years_of_experience", "first_name", "last_name"]
 
+        widgets = {
+            "years_of_experience": forms.NumberInput(attrs={
+                "type": "number",
+                "min": 0,
+                "class": "form-control form-control-lg border border-dark border-2 shadow-lg"}),
+            "first_name": forms.TextInput(attrs={
+                "class": "form-control form-control-lg border border-dark border-2 shadow-lg"}),
+            "last_name": forms.TextInput(attrs={
+                "class": "form-control form-control-lg border border-dark border-2 shadow-lg"}),
+        }
 
     def clean_years_of_experience(self):
         return validate_years_of_experience(self.cleaned_data["years_of_experience"])
