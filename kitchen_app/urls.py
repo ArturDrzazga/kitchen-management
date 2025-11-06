@@ -9,7 +9,7 @@ from kitchen_app.views import (index,
                                DishesCreateView,
                                DishesUpdateView,
                                DishesDeleteView,
-                               IngredientsListView, IngredientsCreateView, IngredientsUpdateView)
+                               IngredientsListView, IngredientsCreateView, IngredientsUpdateView, IngredientsDeleteView)
 
 urlpatterns = [
     path("", index, name="index"),
@@ -55,6 +55,10 @@ urlpatterns = [
     path("ingredients/<int:pk>/update/",
          IngredientsUpdateView.as_view(),
          name="ingredient-update"),
+
+    path("ingredients/<int:pk>/delete/",
+         IngredientsDeleteView.as_view(),
+         name="ingredient-delete"),
 ]
 
 app_name = "kitchen_app"
