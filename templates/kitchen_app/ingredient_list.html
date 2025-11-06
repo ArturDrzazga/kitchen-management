@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+  <h1 class="text-white pt-3 mt-5">Ingredients</h1>
+
+  {% if ingredient_list %}
+    <table class="table text-white border my-5 align-middle">
+      <tr class="fs-4">
+        <th>ID</th>
+        <th>Name</th>
+        <th>Update</th>
+        <th>Delete</th>
+      </tr>
+
+    {% for ingredient in ingredient_list %}
+      <tr class="fs-6">
+        <td>
+          {{ ingredient.id }}
+        </td>
+        <td>
+          {{ ingredient.name }}
+        </td>
+        <td>
+          Update
+        </td>
+        <td>
+          Delete
+        </td>
+      </tr>
+    {% endfor %}
+
+    </table>
+  {% else %}
+    <h2 class="text-white pt-3 mt-n5">There is no any dish types</h2>
+  {% endif %}
+
+  <a href="{% url "kitchen_app:dishtype-create" %}" class="btn btn-primary link-to-page">
+      Add new ingredient
+    </a>
+
+
+
+{% endblock content %}

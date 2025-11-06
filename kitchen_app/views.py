@@ -5,8 +5,7 @@ from django.urls import reverse_lazy
 from django.views import generic
 
 from .forms import DishTypeForm, DishForm
-from .models import Cook, DishType, Dish
-
+from .models import Cook, DishType, Dish, Ingredient
 
 
 def index(request):
@@ -67,3 +66,9 @@ class DishesUpdateView(generic.UpdateView):
 class DishesDeleteView(generic.DeleteView):
     model = Dish
     success_url = reverse_lazy("kitchen_app:dish-list")
+
+
+class IngredientListView(generic.ListView):
+    model = Ingredient
+    template_name = "kitchen_app/ingredient_list.html"
+    paginate_by = 10
