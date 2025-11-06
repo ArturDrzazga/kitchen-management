@@ -23,7 +23,9 @@
           {{ dish.id }}
         </td>
         <td>
-          {{ dish.name }}
+          <a href="{% url "kitchen_app:dish-detail" pk=dish.id %}" class="btn-outline-light text-white">
+            {{ dish.name }}
+          </a>
         </td>
         <td style="white-space: normal !important; max-width: 200px;">
             {{ dish.description }}

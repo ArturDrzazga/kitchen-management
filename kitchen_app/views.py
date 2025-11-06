@@ -51,6 +51,23 @@ class DishesListView(generic.ListView):
     paginate_by = 3
 
 
+class DishesDetailView(generic.DetailView):
+    model = Dish
+
+    def get_queryset(self):
+        return super().get_queryset().prefetch_related("ingredients")
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        dish_object = self.get_object()
+
+        dish_ingredients = dish_object.ingredients.all()
+        context["ingredients"] = dish_ingredients
+
+        return context
+
+
+
 class DishesCreateView(generic.CreateView):
     model = Dish
     form_class = DishForm
