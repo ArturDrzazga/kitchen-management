@@ -1,5 +1,7 @@
 from django import forms
-from .models import DishType, Dish, Ingredient
+from django.contrib.auth.forms import UserCreationForm
+
+from .models import DishType, Dish, Ingredient, Cook
 
 
 class DishTypeForm(forms.ModelForm):
@@ -43,3 +45,13 @@ class IngredientForm(forms.ModelForm):
             "name": forms.TextInput(attrs={
                 "class": "form-control form-control-lg border border-dark border-2 shadow-lg"}),
         }
+
+
+class CookCreationForm(UserCreationForm):
+    class Meta(UserCreationForm.Meta):
+        model = Cook
+        fields = UserCreationForm.Meta.fields + (
+            "years_of_experience",
+            "first_name",
+            "last_name",
+        )
