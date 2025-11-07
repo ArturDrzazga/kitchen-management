@@ -10,7 +10,7 @@ from .forms import (DishTypeForm,
                     IngredientForm,
                     CookCreationForm,
                     CookUpdateForm,
-                    CookNameSearchForm, IngredientNameSearchForm)
+                    CookNameSearchForm, IngredientNameSearchForm, DishNameSearchForm)
 from .models import Cook, DishType, Dish, Ingredient
 
 
@@ -55,6 +55,24 @@ class DishesListView(generic.ListView):
     model = Dish
     template_name = "kitchen_app/dish_list.html"
     paginate_by = 5
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super(DishesListView, self).get_context_data(**kwargs)
+        name = self.request.GET.get("name")
+        context["search_form"] = DishNameSearchForm(
+            initial={"name": name}
+        )
+        return context
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        form = DishNameSearchForm(self.request.GET)
+
+        if form.is_valid():
+            return queryset.filter(
+                name__icontains=form.cleaned_data["name"]
+            )
+        return queryset
 
 
 class DishesDetailView(generic.DetailView):

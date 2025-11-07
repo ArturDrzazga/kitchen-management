@@ -138,3 +138,16 @@ class IngredientNameSearchForm(forms.Form):
             "style": "color:white;"
         })
     )
+
+
+class DishNameSearchForm(forms.Form):
+    name = forms.CharField(
+        max_length=255,
+        required=False,
+        label="",
+        widget=forms.TextInput(attrs={
+            "placeholder": "Search by dish name",
+            "class": "form-control form-control-lg border border-light border-2 shadow-lg",
+            "style": "color:white;"
+        })
+    )
