@@ -120,8 +120,21 @@ class CookNameSearchForm(forms.Form):
         required=False,
         label="",
         widget=forms.TextInput(attrs={
-            'placeholder': "Search by name",
-            'class': "form-control form-control-lg border border-light border-2 shadow-lg",
+            "placeholder": "Search by name",
+            "class": "form-control form-control-lg border border-light border-2 shadow-lg",
+            "style": "color:white;"
+        })
+    )
+
+
+class IngredientNameSearchForm(forms.Form):
+    name = forms.CharField(
+        max_length=255,
+        required=False,
+        label="",
+        widget=forms.TextInput(attrs={
+            "placeholder": "Search by ingredient name",
+            "class": "form-control form-control-lg border border-light border-2 shadow-lg",
             "style": "color:white;"
         })
     )

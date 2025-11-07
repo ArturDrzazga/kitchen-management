@@ -1,11 +1,17 @@
 {% extends "base.html" %}
+{% load crispy_forms_filters %}
 
 {% block content %}
 
   <h1 class="text-white pt-3 mt-5">Ingredients</h1>
 
+  <form action="" method="get">
+    {{ search_form|crispy }}
+    <input type="submit" value="Search" class="btn btn-primary mt-2">
+  </form>
+
   {% if ingredient_list %}
-    <table class="table text-white border my-5 align-middle">
+    <table class="table text-white border my-3 align-middle">
       <tr class="fs-4">
         <th>ID</th>
         <th>Name</th>
