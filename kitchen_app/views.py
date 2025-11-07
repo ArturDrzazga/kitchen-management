@@ -1,10 +1,16 @@
 from django.contrib.auth import get_user_model
 from django.contrib.auth.decorators import login_required
+from django.db.models import Q
 from django.shortcuts import render
 from django.urls import reverse_lazy, reverse
 from django.views import generic
 
-from .forms import DishTypeForm, DishForm, IngredientForm, CookCreationForm, CookUpdateForm
+from .forms import (DishTypeForm,
+                    DishForm,
+                    IngredientForm,
+                    CookCreationForm,
+                    CookUpdateForm,
+                    CookNameSearchForm)
 from .models import Cook, DishType, Dish, Ingredient
 
 
@@ -117,6 +123,25 @@ class IngredientsDeleteView(generic.DeleteView):
 class CooksListView(generic.ListView):
     model = Cook
     paginate_by = 8
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super(CooksListView, self).get_context_data(**kwargs)
+        name = self.request.GET.get("name")
+        context["search_form"] = CookNameSearchForm(
+            initial={"name": name}
+        )
+        return context
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        form = CookNameSearchForm(self.request.GET)
+
+        if form.is_valid():
+            return queryset.filter(
+                Q(first_name__icontains=form.cleaned_data["name"]) |
+                Q(last_name__icontains=form.cleaned_data["name"])
+            )
+        return queryset
 
 
 class CooksDetailView(generic.DetailView):

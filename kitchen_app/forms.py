@@ -1,3 +1,5 @@
+from crispy_forms.helper import FormHelper
+from crispy_forms.layout import Layout, Div, Submit, Field
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.core.exceptions import ValidationError
@@ -111,3 +113,15 @@ def validate_years_of_experience(years_of_experience):
 
 
     return years_of_experience
+
+class CookNameSearchForm(forms.Form):
+    name = forms.CharField(
+        max_length=255,
+        required=False,
+        label="",
+        widget=forms.TextInput(attrs={
+            'placeholder': "Search by name",
+            'class': "form-control form-control-lg border border-light border-2 shadow-lg",
+            "style": "color:white;"
+        })
+    )
