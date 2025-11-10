@@ -10,7 +10,9 @@ from .forms import (DishTypeForm,
                     IngredientForm,
                     CookCreationForm,
                     CookUpdateForm,
-                    CookNameSearchForm, IngredientNameSearchForm, DishNameSearchForm)
+                    CookNameSearchForm,
+                    IngredientNameSearchForm,
+                    DishNameSearchForm)
 from .models import Cook, DishType, Dish, Ingredient
 
 
@@ -91,7 +93,6 @@ class DishesDetailView(LoginRequiredMixin, generic.DetailView):
         return context
 
 
-
 class DishesCreateView(LoginRequiredMixin, generic.CreateView):
     model = Dish
     form_class = DishForm
@@ -107,7 +108,6 @@ class DishesUpdateView(LoginRequiredMixin, generic.UpdateView):
         dish_pk = self.object.pk
 
         return reverse("kitchen_app:dish-detail", kwargs={"pk": dish_pk})
-
 
 
 class DishesDeleteView(LoginRequiredMixin, generic.DeleteView):

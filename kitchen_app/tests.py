@@ -3,7 +3,7 @@ from django.core.exceptions import ValidationError
 from django.test import TestCase
 from django.urls import reverse
 
-from kitchen_app.models import DishType, Ingredient, Dish, Cook
+from kitchen_app.models import DishType, Ingredient, Dish
 
 
 class ModelTests(TestCase):
@@ -13,7 +13,7 @@ class ModelTests(TestCase):
             first_name="test",
             last_name="test",
             password="test123",
-            years_of_experience= 5
+            years_of_experience=5
         )
 
         self.assertEqual(str(cook), f"{cook.first_name} {cook.last_name}")
@@ -33,7 +33,6 @@ class ModelTests(TestCase):
         dish_type = DishType.objects.create(name="test")
 
         self.assertEqual(str(dish_type), f"{dish_type.name}")
-
 
     def test_ingredient_str(self):
         ingredient = Ingredient.objects.create(name="test")
@@ -82,7 +81,7 @@ class SearchFormTests(TestCase):
             password="test123",
             years_of_experience=4)
 
-        url=reverse("kitchen_app:cook-list")
+        url = reverse("kitchen_app:cook-list")
         response = self.client.get(url, {"name": "real"})
         results = response.context["cook_list"]
 
@@ -95,7 +94,7 @@ class SearchFormTests(TestCase):
         first_ingredient = Ingredient.objects.create(name="real")
         second_ingredient = Ingredient.objects.create(name="fake")
 
-        url=reverse("kitchen_app:ingredient-list")
+        url = reverse("kitchen_app:ingredient-list")
         response = self.client.get(url, {"name": "real"})
         results = response.context["ingredient_list"]
 
@@ -103,7 +102,6 @@ class SearchFormTests(TestCase):
         self.assertEqual(len(results), 1)
         self.assertIn(first_ingredient, results)
         self.assertNotIn(second_ingredient, results)
-
 
     def test_search_form_dishes(self):
         first_dish = Dish.objects.create(
@@ -120,7 +118,7 @@ class SearchFormTests(TestCase):
             dish_type=DishType.objects.create(name="test")
         )
 
-        url=reverse("kitchen_app:dish-list")
+        url = reverse("kitchen_app:dish-list")
         response = self.client.get(url, {"name": "real"})
         results = response.context["dish_list"]
 

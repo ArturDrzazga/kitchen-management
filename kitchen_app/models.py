@@ -7,7 +7,10 @@ from kitchen_management import settings
 
 
 class Cook(AbstractUser):
-    years_of_experience = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(100)], default=0)
+    years_of_experience = models.IntegerField(
+        validators=[MinValueValidator(0), MaxValueValidator(100)],
+        default=0
+    )
 
     def save(self, *args, **kwargs):
         self.full_clean()
@@ -36,8 +39,14 @@ class Dish(models.Model):
     description = models.TextField()
     price = models.DecimalField(decimal_places=2, max_digits=10)
     dish_type = models.ForeignKey(DishType, on_delete=models.CASCADE)
-    ingredients = models.ManyToManyField(Ingredient, related_name="dish_ingredients")
-    cooks = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name="dishes")
+    ingredients = models.ManyToManyField(
+        Ingredient,
+        related_name="dish_ingredients"
+    )
+    cooks = models.ManyToManyField(
+        settings.AUTH_USER_MODEL,
+        related_name="dishes"
+    )
 
     def clean(self):
         super().clean()

@@ -1,4 +1,3 @@
-from django.contrib.auth.views import LoginView, LogoutView
 from django.urls import path
 
 from kitchen_app.views import (index,
@@ -15,7 +14,11 @@ from kitchen_app.views import (index,
                                IngredientsUpdateView,
                                IngredientsDeleteView,
                                CooksListView,
-                               CooksDetailView, CooksCreateView, CooksUpdateView, CooksDeleteView, DishesDetailView)
+                               CooksDetailView,
+                               CooksCreateView,
+                               CooksUpdateView,
+                               CooksDeleteView,
+                               DishesDetailView)
 
 urlpatterns = [
     path("", index, name="index"),

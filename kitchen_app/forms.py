@@ -1,5 +1,3 @@
-from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Layout, Div, Submit, Field
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.core.exceptions import ValidationError
@@ -14,7 +12,9 @@ class DishTypeForm(forms.ModelForm):
 
         widgets = {
             "name": forms.TextInput(attrs={
-                "class": "form-control form-control-lg border border-dark border-2 shadow-lg"}),
+                "class":
+                    "form-control form-control-lg border "
+                    "border-dark border-2 shadow-lg"}),
         }
 
 
@@ -25,17 +25,29 @@ class DishForm(forms.ModelForm):
 
         widgets = {
             "name": forms.TextInput(attrs={
-                "class": "form-control form-control-lg border border-dark border-2 shadow-lg"}),
+                "class":
+                    "form-control form-control-lg border"
+                    " border-dark border-2 shadow-lg"}),
             "description": forms.TextInput(attrs={
-                "class": "form-control form-control-lg border border-dark border-2 shadow-lg"}),
+                "class":
+                    "form-control form-control-lg border"
+                    " border-dark border-2 shadow-lg"}),
             "price": forms.TextInput(attrs={
-                "class": "form-control form-control-lg border border-dark border-2 shadow-lg"}),
+                "class":
+                    "form-control form-control-lg border"
+                    " border-dark border-2 shadow-lg"}),
             "dish_type": forms.Select(attrs={
-                "class": "form-control form-control-lg border border-dark border-2 shadow-lg"}),
+                "class":
+                    "form-control form-control-lg border"
+                    " border-dark border-2 shadow-lg"}),
             "ingredients": forms.CheckboxSelectMultiple(attrs={
-                "class": "form-control border border-dark border-2 shadow-lg"},),
+                "class":
+                    "form-control border border-dark"
+                    " border-2 shadow-lg"},),
             "cooks": forms.SelectMultiple(attrs={
-                "class": "form-control border border-dark border-2 shadow-lg"}, ),
+                "class":
+                    "form-control border border-dark"
+                    " border-2 shadow-lg"}, ),
         }
 
     def clean_price(self):
@@ -45,7 +57,6 @@ class DishForm(forms.ModelForm):
         return price
 
 
-
 class IngredientForm(forms.ModelForm):
     class Meta:
         model = Ingredient
@@ -53,7 +64,8 @@ class IngredientForm(forms.ModelForm):
 
         widgets = {
             "name": forms.TextInput(attrs={
-                "class": "form-control form-control-lg border border-dark border-2 shadow-lg"}),
+                "class": "form-control form-control-lg border"
+                         " border-dark border-2 shadow-lg"}),
         }
 
 
@@ -68,19 +80,31 @@ class CookCreationForm(UserCreationForm):
 
         widgets = {
             "username": forms.TextInput(attrs={
-                "class": "form-control form-control-lg border border-dark border-2 shadow-lg"}),
+                "class":
+                    "form-control form-control-lg border"
+                    "border-dark border-2 shadow-lg"}),
             "years_of_experience": forms.NumberInput(attrs={
                 "type": "number",
                 "min": 0,
-                "class": "form-control form-control-lg border border-dark border-2 shadow-lg"}),
+                "class":
+                    "form-control form-control-lg border"
+                    " border-dark border-2 shadow-lg"}),
             "first_name": forms.TextInput(attrs={
-                "class": "form-control form-control-lg border border-dark border-2 shadow-lg"}),
+                "class":
+                    "form-control form-control-lg border"
+                    "border-dark border-2 shadow-lg"}),
             "last_name": forms.TextInput(attrs={
-                "class": "form-control form-control-lg border border-dark border-2 shadow-lg"}),
+                "class":
+                    "form-control form-control-lg border"
+                    "border-dark border-2 shadow-lg"}),
             "password": forms.PasswordInput(attrs={
-                "class": "form-control form-control-lg border border-dark border-2 shadow-lg"}),
+                "class":
+                    "form-control form-control-lg border"
+                    "border-dark border-2 shadow-lg"}),
             "password2": forms.PasswordInput(attrs={
-                "class": "form-control form-control-lg border border-dark border-2 shadow-lg"}),
+                "class":
+                    "form-control form-control-lg border"
+                    "border-dark border-2 shadow-lg"}),
         }
 
 
@@ -93,11 +117,17 @@ class CookUpdateForm(forms.ModelForm):
             "years_of_experience": forms.NumberInput(attrs={
                 "type": "number",
                 "min": 0,
-                "class": "form-control form-control-lg border border-dark border-2 shadow-lg",}),
+                "class":
+                    "form-control form-control-lg border"
+                    "border-dark border-2 shadow-lg"}),
             "first_name": forms.TextInput(attrs={
-                "class": "form-control form-control-lg border border-dark border-2 shadow-lg"}),
+                "class":
+                    "form-control form-control-lg border"
+                    "border-dark border-2 shadow-lg"}),
             "last_name": forms.TextInput(attrs={
-                "class": "form-control form-control-lg border border-dark border-2 shadow-lg"}),
+                "class":
+                    "form-control form-control-lg border"
+                    "border-dark border-2 shadow-lg"}),
         }
 
 
@@ -108,7 +138,9 @@ class CookNameSearchForm(forms.Form):
         label="",
         widget=forms.TextInput(attrs={
             "placeholder": "Search by name",
-            "class": "form-control form-control-lg border border-light border-2 shadow-lg",
+            "class":
+                "form-control form-control-lg border"
+                "border-light border-2 shadow-lg",
             "style": "color:white;"
         })
     )
@@ -121,7 +153,9 @@ class IngredientNameSearchForm(forms.Form):
         label="",
         widget=forms.TextInput(attrs={
             "placeholder": "Search by ingredient name",
-            "class": "form-control form-control-lg border border-light border-2 shadow-lg",
+            "class":
+                "form-control form-control-lg border"
+                "border-light border-2 shadow-lg",
             "style": "color:white;"
         })
     )
@@ -134,7 +168,9 @@ class DishNameSearchForm(forms.Form):
         label="",
         widget=forms.TextInput(attrs={
             "placeholder": "Search by dish name",
-            "class": "form-control form-control-lg border border-light border-2 shadow-lg",
+            "class":
+                "form-control form-control-lg border"
+                "border-light border-2 shadow-lg",
             "style": "color:white;"
         })
     )
