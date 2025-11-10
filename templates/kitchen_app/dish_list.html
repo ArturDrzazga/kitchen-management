@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+
+{% block content %}
+    <h1 class="text-white pt-3 mt-5">Dishes</h1>
+
+  <form action="" method="get">
+    {{ search_form|crispy }}
+    <input type="submit" value="Search" class="btn btn-primary mt-2">
+  </form>
+
+  <div class="table-responsive">
+  {% if dish_list %}
+    <table class="table text-white border my-4 align-middle">
+      <tr class="fs-4">
+        <th>ID</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Dish type</th>
+      </tr>
+
+    {% for dish in dish_list %}
+      <tr class="fs-6">
+        <td>
+          {{ dish.id }}
+        </td>
+        <td>
+          <a href="{% url "kitchen_app:dish-detail" pk=dish.id %}" class="btn-outline-light text-white">
+            {{ dish.name }}
+          </a>
+        </td>
+        <td style="white-space: normal !important; max-width: 200px;">
+            {{ dish.description }}
+        </td>
+        <td>
+          {{ dish.price }}
+        </td>
+        <td>
+          {{ dish.dish_type.name }}
+        </td>
+      </tr>
+    {% endfor %}
+
+    </table>
+  {% else %}
+    <h3 class="text-white pt-3 mt-5">There is no any dishes</h3>
+  {% endif %}
+
+  <a href="{% url "kitchen_app:dish-create" %}" class="btn btn-primary link-to-page">
+      Create new dish
+    </a>
+  </div>
+
+{% endblock content %}

@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+
+{% block content %}
+  <div class="container py-5">
+    <div class="row justify-content-center">
+      <div class="col-lg-6 col-md-8">
+        <div class="card p-4 shadow-lg">
+          <p class="fs-5 fw-bold text-dark">Name: {{ cook.first_name }} {{ cook.last_name }}</p>
+
+          {% if cook.username %}
+            <p class="fs-5 fw-bold text-dark">Username: {{ cook.username }}</p>
+          {% endif %}
+
+          <p class="fs-5 fw-bold text-dark">Years of experience: {{ cook.years_of_experience }}</p>
+          <p class="fs-5 fw-bold text-dark">Dishes:</p>
+
+          <ul class="list-unstyled">
+            {% for dish in cook_dishes %}
+              <li class="fs-6 text-dark">{{ dish.name }}</li>
+            {% endfor %}
+          </ul>
+
+          <a href="{% url "kitchen_app:cook-list" %}" class="btn btn-info mt-4">Go back</a>
+          <a href="{% url "kitchen_app:cook-update" pk=cook.id %}" class="btn btn-primary btn-success">Update cook</a>
+          <a href="{% url "kitchen_app:cook-delete" pk=cook.id %}" class="btn btn-primary btn-danger">Delete cook</a>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

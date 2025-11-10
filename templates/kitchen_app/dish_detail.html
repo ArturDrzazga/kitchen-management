@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+
+{% block content %}
+  <div class="container py-5">
+    <div class="row justify-content-center">
+      <div class="col-lg-6 col-md-8">
+        <div class="card p-4 shadow-lg">
+          <p class="fs-5 fw-bold text-dark">Name: {{ dish.name }}</p>
+          <p class="fs-5 fw-bold text-dark">Description: {{ dish.description }}</p>
+          <p class="fs-5 fw-bold text-dark">Price: {{ dish.price }}</p>
+          <p class="fs-5 fw-bold text-dark">Dish type: {{ dish.dish_type.name }}</p>
+
+          <p class="fs-5 fw-bold text-dark">Ingredients:</p>
+            <ul class="list-unstyled">
+              {% for ingredient in ingredients %}
+                <li class="fs-6 text-dark">{{ ingredient.name }}</li>
+              {% endfor %}
+            </ul>
+
+          <a href="{% url "kitchen_app:dish-list" %}" class="btn btn-info mt-4">Go back</a>
+          <a href="{% url "kitchen_app:dish-update" pk=dish.id %}" class="btn btn-primary btn-success">Update dish</a>
+          <a href="{% url "kitchen_app:dish-delete" pk=dish.id %}" class="btn btn-primary btn-danger">Delete dish</a>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

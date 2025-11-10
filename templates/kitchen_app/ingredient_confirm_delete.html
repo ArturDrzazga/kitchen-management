@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+
+{% block content %}
+  <h1 class="text-white pt-3 mt-n5">Are you sure to delete {{ ingredient.name }} from ingredients?</h1>
+  <div class="container py-5">
+    <div class="row justify-content-center">
+      <div class="col-lg-6 col-md-8">
+        <div class="card p-4 shadow-lg">
+          <form action="" method="post">
+            {% csrf_token %}
+
+            <input type="submit" value="Delete" class="btn btn-primary btn-success">
+            <a href="{% url "kitchen_app:ingredient-list" %}" class="btn btn-primary btn-danger">Cancel</a>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

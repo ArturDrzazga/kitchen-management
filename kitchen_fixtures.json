@@ -1,0 +1,746 @@
+[
+  {
+    "model": "kitchen_app.dishtype",
+    "pk": 1,
+    "fields": {
+      "name": "Appetizer"
+    }
+  },
+  {
+    "model": "kitchen_app.dishtype",
+    "pk": 2,
+    "fields": {
+      "name": "Main Course"
+    }
+  },
+  {
+    "model": "kitchen_app.dishtype",
+    "pk": 3,
+    "fields": {
+      "name": "Soup"
+    }
+  },
+  {
+    "model": "kitchen_app.dishtype",
+    "pk": 4,
+    "fields": {
+      "name": "Dessert"
+    }
+  },
+  {
+    "model": "kitchen_app.dishtype",
+    "pk": 5,
+    "fields": {
+      "name": "Salad"
+    }
+  },
+  {
+    "model": "kitchen_app.dishtype",
+    "pk": 6,
+    "fields": {
+      "name": "Pasta"
+    }
+  },
+  {
+    "model": "kitchen_app.dishtype",
+    "pk": 7,
+    "fields": {
+      "name": "Seafood"
+    }
+  },
+  {
+    "model": "kitchen_app.dishtype",
+    "pk": 8,
+    "fields": {
+      "name": "Vegan"
+    }
+  },
+  {
+    "model": "kitchen_app.dishtype",
+    "pk": 9,
+    "fields": {
+      "name": "Breakfast"
+    }
+  },
+  {
+    "model": "kitchen_app.dishtype",
+    "pk": 10,
+    "fields": {
+      "name": "Side Dish"
+    }
+  },
+
+
+  {
+    "model": "kitchen_app.ingredient",
+    "pk": 1,
+    "fields": {
+      "name": "Chicken Breast"
+    }
+  },
+  {
+    "model": "kitchen_app.ingredient",
+    "pk": 2,
+    "fields": {
+      "name": "Rice"
+    }
+  },
+  {
+    "model": "kitchen_app.ingredient",
+    "pk": 3,
+    "fields": {
+      "name": "Broccoli"
+    }
+  },
+  {
+    "model": "kitchen_app.ingredient",
+    "pk": 4,
+    "fields": {
+      "name": "Onion"
+    }
+  },
+  {
+    "model": "kitchen_app.ingredient",
+    "pk": 5,
+    "fields": {
+      "name": "Tomato Paste"
+    }
+  },
+  {
+    "model": "kitchen_app.ingredient",
+    "pk": 6,
+    "fields": {
+      "name": "Cream"
+    }
+  },
+  {
+    "model": "kitchen_app.ingredient",
+    "pk": 7,
+    "fields": {
+      "name": "Lettuce"
+    }
+  },
+  {
+    "model": "kitchen_app.ingredient",
+    "pk": 8,
+    "fields": {
+      "name": "Croutons"
+    }
+  },
+  {
+    "model": "kitchen_app.ingredient",
+    "pk": 9,
+    "fields": {
+      "name": "Flour"
+    }
+  },
+  {
+    "model": "kitchen_app.ingredient",
+    "pk": 10,
+    "fields": {
+      "name": "Chocolate"
+    }
+  },
+  {
+    "model": "kitchen_app.ingredient",
+    "pk": 11,
+    "fields": {
+      "name": "Beef"
+    }
+  },
+  {
+    "model": "kitchen_app.ingredient",
+    "pk": 12,
+    "fields": {
+      "name": "Potatoes"
+    }
+  },
+  {
+    "model": "kitchen_app.ingredient",
+    "pk": 13,
+    "fields": {
+      "name": "Garlic"
+    }
+  },
+  {
+    "model": "kitchen_app.ingredient",
+    "pk": 14,
+    "fields": {
+      "name": "Cheese (Parmesan)"
+    }
+  },
+  {
+    "model": "kitchen_app.ingredient",
+    "pk": 15,
+    "fields": {
+      "name": "Spaghetti"
+    }
+  },
+  {
+    "model": "kitchen_app.ingredient",
+    "pk": 16,
+    "fields": {
+      "name": "Eggs"
+    }
+  },
+  {
+    "model": "kitchen_app.ingredient",
+    "pk": 17,
+    "fields": {
+      "name": "Sugar"
+    }
+  },
+  {
+    "model": "kitchen_app.ingredient",
+    "pk": 18,
+    "fields": {
+      "name": "Wine (Red)"
+    }
+  },
+  {
+    "model": "kitchen_app.ingredient",
+    "pk": 19,
+    "fields": {
+      "name": "Carrots"
+    }
+  },
+  {
+    "model": "kitchen_app.ingredient",
+    "pk": 20,
+    "fields": {
+      "name": "Pork"
+    }
+  },
+  {
+    "model": "kitchen_app.ingredient",
+    "pk": 21,
+    "fields": {
+      "name": "Mushrooms"
+    }
+  },
+  {
+    "model": "kitchen_app.ingredient",
+    "pk": 22,
+    "fields": {
+      "name": "Milk"
+    }
+  },
+  {
+    "model": "kitchen_app.ingredient",
+    "pk": 23,
+    "fields": {
+      "name": "Olive Oil"
+    }
+  },
+  {
+    "model": "kitchen_app.ingredient",
+    "pk": 24,
+    "fields": {
+      "name": "Fish Fillet"
+    }
+  },
+  {
+    "model": "kitchen_app.ingredient",
+    "pk": 25,
+    "fields": {
+      "name": "Lemon"
+    }
+  },
+
+
+  {
+    "model": "kitchen_app.cook",
+    "pk": 1,
+    "fields": {
+      "password": "pbkdf2_sha256$260000$chef_secret1$hashed_value_example",
+      "last_login": null,
+      "is_superuser": true,
+      "username": "Gordon_Head",
+      "first_name": "Gordon",
+      "last_name": "Ramsay",
+      "email": "gordon@kitchen.com",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2015-01-10T08:00:00Z",
+      "years_of_experience": 15,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "kitchen_app.cook",
+    "pk": 2,
+    "fields": {
+      "password": "pbkdf2_sha256$260000$chef_secret2$hashed_value_example",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "Julia_Sous",
+      "first_name": "Julia",
+      "last_name": "Childs",
+      "email": "julia@kitchen.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2020-03-25T12:30:00Z",
+      "years_of_experience": 7,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "kitchen_app.cook",
+    "pk": 3,
+    "fields": {
+      "password": "pbkdf2_sha260000$chef_secret3$hashed_value_example",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "Jamie_Prep",
+      "first_name": "Jamie",
+      "last_name": "Oliver",
+      "email": "jamie@kitchen.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2022-09-01T09:15:00Z",
+      "years_of_experience": 3,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "kitchen_app.cook",
+    "pk": 4,
+    "fields": {
+      "password": "pbkdf2_sha260000$chef_secret4$hashed_value_example",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "Nigella_Bake",
+      "first_name": "Nigella",
+      "last_name": "Lawson",
+      "email": "nigella@kitchen.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2018-05-15T14:00:00Z",
+      "years_of_experience": 10,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "kitchen_app.cook",
+    "pk": 5,
+    "fields": {
+      "password": "pbkdf2_sha260000$chef_secret5$hashed_value_example",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "Heston_Exper",
+      "first_name": "Heston",
+      "last_name": "Blumenthal",
+      "email": "heston@kitchen.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2010-11-20T10:45:00Z",
+      "years_of_experience": 20,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "kitchen_app.cook",
+    "pk": 6,
+    "fields": {
+      "password": "pbkdf2_sha260000$chef_secret6$hashed_value_example",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "Chef_Ben",
+      "first_name": "Ben",
+      "last_name": "Smith",
+      "email": "ben@kitchen.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2020-11-20T10:45:00Z",
+      "years_of_experience": 5,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "kitchen_app.cook",
+    "pk": 7,
+    "fields": {
+      "password": "pbkdf2_sha260000$chef_secret7$hashed_value_example",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "Chef_Mary",
+      "first_name": "Mary",
+      "last_name": "Jones",
+      "email": "mary@kitchen.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2013-08-01T10:45:00Z",
+      "years_of_experience": 12,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+
+
+  {
+    "model": "kitchen_app.dish",
+    "pk": 1,
+    "fields": {
+      "name": "Chicken Curry with Rice",
+      "description": "Tender chicken pieces cooked in a rich, creamy curry sauce, served with basmati rice.",
+      "price": "45.00",
+      "dish_type": 2,
+      "ingredients": [1, 2, 4, 5, 6],
+      "cooks": [1, 2]
+    }
+  },
+  {
+    "model": "kitchen_app.dish",
+    "pk": 2,
+    "fields": {
+      "name": "Classic Caesar Salad",
+      "description": "Crisp romaine lettuce, croutons, and parmesan cheese with a traditional Caesar dressing.",
+      "price": "28.50",
+      "dish_type": 5,
+      "ingredients": [7, 8, 14, 23],
+      "cooks": [2, 3]
+    }
+  },
+  {
+    "model": "kitchen_app.dish",
+    "pk": 3,
+    "fields": {
+      "name": "Broccoli Cream Soup",
+      "description": "Smooth and velvety broccoli soup, finished with a touch of heavy cream.",
+      "price": "19.90",
+      "dish_type": 3,
+      "ingredients": [3, 4, 6, 22],
+      "cooks": [3, 6]
+    }
+  },
+  {
+    "model": "kitchen_app.dish",
+    "pk": 4,
+    "fields": {
+      "name": "Chocolate Lava Cake",
+      "description": "Warm chocolate cake with a molten chocolate center, dusted with icing sugar.",
+      "price": "15.00",
+      "dish_type": 4,
+      "ingredients": [9, 10, 16, 17],
+      "cooks": [1, 4]
+    }
+  },
+  {
+    "model": "kitchen_app.dish",
+    "pk": 5,
+    "fields": {
+      "name": "Garlic Breadsticks",
+      "description": "Toasted breadsticks brushed with garlic butter and herbs.",
+      "price": "12.50",
+      "dish_type": 1,
+      "ingredients": [9, 13],
+      "cooks": [2, 5]
+    }
+  },
+  {
+    "model": "kitchen_app.dish",
+    "pk": 6,
+    "fields": {
+      "name": "Roast Beef with Potatoes",
+      "description": "Slow-roasted beef served with oven-baked potatoes and gravy.",
+      "price": "55.99",
+      "dish_type": 2,
+      "ingredients": [11, 12, 4, 18],
+      "cooks": [1, 5]
+    }
+  },
+  {
+    "model": "kitchen_app.dish",
+    "pk": 7,
+    "fields": {
+      "name": "Caprese Skewers",
+      "description": "Cherry tomatoes, fresh mozzarella, and basil drizzled with balsamic glaze.",
+      "price": "18.00",
+      "dish_type": 1,
+      "ingredients": [7, 23],
+      "cooks": [3, 5]
+    }
+  },
+  {
+    "model": "kitchen_app.dish",
+    "pk": 8,
+    "fields": {
+      "name": "Spaghetti Carbonara",
+      "description": "Classic Italian pasta dish with eggs, hard cheese, cured pork, and black pepper.",
+      "price": "38.50",
+      "dish_type": 6,
+      "ingredients": [15, 16, 14, 20],
+      "cooks": [2, 6]
+    }
+  },
+  {
+    "model": "kitchen_app.dish",
+    "pk": 9,
+    "fields": {
+      "name": "Apple Crumble",
+      "description": "Warm baked apples topped with a crunchy oat and butter crumble.",
+      "price": "14.00",
+      "dish_type": 4,
+      "ingredients": [9, 17],
+      "cooks": [4]
+    }
+  },
+  {
+    "model": "kitchen_app.dish",
+    "pk": 10,
+    "fields": {
+      "name": "French Onion Soup",
+      "description": "Rich beef broth with caramelized onions, topped with a crusty bread and melted cheese.",
+      "price": "22.00",
+      "dish_type": 3,
+      "ingredients": [4, 14, 18],
+      "cooks": [1, 5, 7]
+    }
+  },
+  {
+    "model": "kitchen_app.dish",
+    "pk": 11,
+    "fields": {
+      "name": "Mushroom Risotto",
+      "description": "Creamy Italian rice dish cooked with white wine and sautéed mushrooms.",
+      "price": "42.00",
+      "dish_type": 2,
+      "ingredients": [2, 21, 18, 14],
+      "cooks": [2, 7]
+    }
+  },
+  {
+    "model": "kitchen_app.dish",
+    "pk": 12,
+    "fields": {
+      "name": "Prawn Cocktail",
+      "description": "Classic starter with shrimp served in a cocktail sauce over shredded lettuce.",
+      "price": "25.00",
+      "dish_type": 1,
+      "ingredients": [7, 6, 7],
+      "cooks": [3, 7]
+    }
+  },
+  {
+    "model": "kitchen_app.dish",
+    "pk": 13,
+    "fields": {
+      "name": "Tiramisu",
+      "description": "Coffee-flavored Italian dessert with ladyfingers dipped in coffee, layered with mascarpone cream.",
+      "price": "16.50",
+      "dish_type": 4,
+      "ingredients": [16, 6, 17, 10],
+      "cooks": [4, 6]
+    }
+  },
+  {
+    "model": "kitchen_app.dish",
+    "pk": 14,
+    "fields": {
+      "name": "Greek Salad",
+      "description": "Tomatoes, cucumbers, onion, feta cheese, and olives.",
+      "price": "29.90",
+      "dish_type": 5,
+      "ingredients": [7, 23, 4],
+      "cooks": [1, 3]
+    }
+  },
+  {
+    "model": "kitchen_app.dish",
+    "pk": 15,
+    "fields": {
+      "name": "Pumpkin Soup",
+      "description": "Smooth, spiced pumpkin soup perfect for a chilly evening.",
+      "price": "18.00",
+      "dish_type": 3,
+      "ingredients": [6, 19, 4],
+      "cooks": [2, 5]
+    }
+  },
+  {
+    "model": "kitchen_app.dish",
+    "pk": 16,
+    "fields": {
+      "name": "Fish and Chips",
+      "description": "Battered white fish served with thick-cut chips and tartar sauce.",
+      "price": "49.00",
+      "dish_type": 7,
+      "ingredients": [24, 12, 9, 25],
+      "cooks": [1, 5]
+    }
+  },
+  {
+    "model": "kitchen_app.dish",
+    "pk": 17,
+    "fields": {
+      "name": "Bruschetta",
+      "description": "Toasted bread rubbed with garlic and topped with chopped tomatoes and basil.",
+      "price": "15.00",
+      "dish_type": 1,
+      "ingredients": [13, 7, 23, 4],
+      "cooks": [3, 4]
+    }
+  },
+  {
+    "model": "kitchen_app.dish",
+    "pk": 18,
+    "fields": {
+      "name": "Beef Stew",
+      "description": "Hearty stew with slow-cooked beef, carrots, and potatoes in a rich gravy.",
+      "price": "48.00",
+      "dish_type": 2,
+      "ingredients": [11, 19, 12, 4],
+      "cooks": [1, 2, 5]
+    }
+  },
+  {
+    "model": "kitchen_app.dish",
+    "pk": 19,
+    "fields": {
+      "name": "Chocolate Mousse",
+      "description": "Light and airy French chocolate dessert.",
+      "price": "17.50",
+      "dish_type": 4,
+      "ingredients": [10, 6, 16],
+      "cooks": [4, 7]
+    }
+  },
+  {
+    "model": "kitchen_app.dish",
+    "pk": 20,
+    "fields": {
+      "name": "Aglio e Olio Pasta",
+      "description": "Simple Italian pasta with garlic, olive oil, and chili flakes.",
+      "price": "29.00",
+      "dish_type": 6,
+      "ingredients": [15, 13, 23],
+      "cooks": [6]
+    }
+  },
+  {
+    "model": "kitchen_app.dish",
+    "pk": 21,
+    "fields": {
+      "name": "Vegan Lentil Soup",
+      "description": "Hearty, fully plant-based lentil soup.",
+      "price": "19.50",
+      "dish_type": 8,
+      "ingredients": [4, 19, 23, 3],
+      "cooks": [7]
+    }
+  },
+  {
+    "model": "kitchen_app.dish",
+    "pk": 22,
+    "fields": {
+      "name": "Shrimp Scampi",
+      "description": "Shrimp cooked in butter, garlic, and white wine sauce, served over pasta.",
+      "price": "52.00",
+      "dish_type": 7,
+      "ingredients": [13, 15, 23, 25],
+      "cooks": [5, 7]
+    }
+  },
+  {
+    "model": "kitchen_app.dish",
+    "pk": 23,
+    "fields": {
+      "name": "Oatmeal with Berries",
+      "description": "Warm oatmeal topped with fresh seasonal berries and honey.",
+      "price": "10.00",
+      "dish_type": 9,
+      "ingredients": [22, 17],
+      "cooks": [3, 6]
+    }
+  },
+  {
+    "model": "kitchen_app.dish",
+    "pk": 24,
+    "fields": {
+      "name": "Mashed Potatoes",
+      "description": "Creamy mashed potatoes with butter and herbs.",
+      "price": "12.00",
+      "dish_type": 10,
+      "ingredients": [12, 6],
+      "cooks": [1, 2, 3, 5]
+    }
+  },
+  {
+    "model": "kitchen_app.dish",
+    "pk": 25,
+    "fields": {
+      "name": "Vegan Burger",
+      "description": "Plant-based patty served on a bun with fresh vegetables.",
+      "price": "35.00",
+      "dish_type": 8,
+      "ingredients": [7, 4, 23],
+      "cooks": [6, 7]
+    }
+  },
+  {
+    "model": "kitchen_app.dish",
+    "pk": 26,
+    "fields": {
+      "name": "Waffles with Syrup",
+      "description": "Crispy Belgian waffles served with maple syrup.",
+      "price": "14.50",
+      "dish_type": 9,
+      "ingredients": [9, 16, 17, 22],
+      "cooks": [4]
+    }
+  },
+  {
+    "model": "kitchen_app.dish",
+    "pk": 27,
+    "fields": {
+      "name": "Creamy Tomato Soup",
+      "description": "Simple, creamy tomato soup, great as a starter.",
+      "price": "18.50",
+      "dish_type": 3,
+      "ingredients": [5, 6, 4],
+      "cooks": [1, 3]
+    }
+  },
+  {
+    "model": "kitchen_app.dish",
+    "pk": 28,
+    "fields": {
+      "name": "Side Salad",
+      "description": "Small mix of greens with vinaigrette.",
+      "price": "8.00",
+      "dish_type": 10,
+      "ingredients": [7, 23],
+      "cooks": [2, 6]
+    }
+  },
+  {
+    "model": "kitchen_app.dish",
+    "pk": 29,
+    "fields": {
+      "name": "Lemon and Herb Fish Fillet",
+      "description": "Pan-fried fish with lemon, garlic, and fresh herbs.",
+      "price": "58.00",
+      "dish_type": 7,
+      "ingredients": [24, 25, 13, 23],
+      "cooks": [5, 7]
+    }
+  },
+  {
+    "model": "kitchen_app.dish",
+    "pk": 30,
+    "fields": {
+      "name": "Chicken Noodle Soup",
+      "description": "Classic comfort soup with chicken, vegetables, and egg noodles.",
+      "price": "21.00",
+      "dish_type": 3,
+      "ingredients": [1, 19, 4, 16],
+      "cooks": [1, 2]
+    }
+  }
+]

@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+
+{% block content %}
+
+  <h1 class="text-white pt-3 mt-5">Ingredients</h1>
+
+  <form action="" method="get">
+    {{ search_form|crispy }}
+    <input type="submit" value="Search" class="btn btn-primary mt-2">
+  </form>
+
+  {% if ingredient_list %}
+    <table class="table text-white border my-3 align-middle">
+      <tr class="fs-4">
+        <th>ID</th>
+        <th>Name</th>
+        <th>Update</th>
+        <th>Delete</th>
+      </tr>
+
+    {% for ingredient in ingredient_list %}
+      <tr class="fs-6">
+        <td>
+          {{ ingredient.id }}
+        </td>
+        <td>
+          {{ ingredient.name }}
+        </td>
+        <td>
+          <a href="{% url "kitchen_app:ingredient-update" pk=ingredient.id %}" class="btn-outline-light text-white">
+            Update
+          </a>
+        </td>
+        <td>
+          <a href="{% url "kitchen_app:ingredient-delete" pk=ingredient.id %}" class="btn-outline-light text-white">
+            Delete
+          </a>
+        </td>
+      </tr>
+    {% endfor %}
+
+    </table>
+  {% else %}
+    <h2 class="text-white pt-3 mt-n5">There is no any dish types</h2>
+  {% endif %}
+
+  <a href="{% url "kitchen_app:ingredient-create" %}" class="btn btn-primary link-to-page">
+      Add new ingredient
+    </a>
+
+{% endblock content %}
