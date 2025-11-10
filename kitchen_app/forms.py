@@ -82,7 +82,7 @@ class CookCreationForm(UserCreationForm):
             "username": forms.TextInput(attrs={
                 "class":
                     "form-control form-control-lg border"
-                    "border-dark border-2 shadow-lg"}),
+                    " border-dark border-2 shadow-lg"}),
             "years_of_experience": forms.NumberInput(attrs={
                 "type": "number",
                 "min": 0,
@@ -92,19 +92,19 @@ class CookCreationForm(UserCreationForm):
             "first_name": forms.TextInput(attrs={
                 "class":
                     "form-control form-control-lg border"
-                    "border-dark border-2 shadow-lg"}),
+                    " border-dark border-2 shadow-lg"}),
             "last_name": forms.TextInput(attrs={
                 "class":
                     "form-control form-control-lg border"
-                    "border-dark border-2 shadow-lg"}),
+                    " border-dark border-2 shadow-lg"}),
             "password": forms.PasswordInput(attrs={
                 "class":
                     "form-control form-control-lg border"
-                    "border-dark border-2 shadow-lg"}),
+                    " border-dark border-2 shadow-lg"}),
             "password2": forms.PasswordInput(attrs={
                 "class":
                     "form-control form-control-lg border"
-                    "border-dark border-2 shadow-lg"}),
+                    " border-dark border-2 shadow-lg"}),
         }
 
 
@@ -119,15 +119,15 @@ class CookUpdateForm(forms.ModelForm):
                 "min": 0,
                 "class":
                     "form-control form-control-lg border"
-                    "border-dark border-2 shadow-lg"}),
+                    " border-dark border-2 shadow-lg"}),
             "first_name": forms.TextInput(attrs={
                 "class":
                     "form-control form-control-lg border"
-                    "border-dark border-2 shadow-lg"}),
+                    " border-dark border-2 shadow-lg"}),
             "last_name": forms.TextInput(attrs={
                 "class":
                     "form-control form-control-lg border"
-                    "border-dark border-2 shadow-lg"}),
+                    " border-dark border-2 shadow-lg"}),
         }
 
 
@@ -140,7 +140,7 @@ class CookNameSearchForm(forms.Form):
             "placeholder": "Search by name",
             "class":
                 "form-control form-control-lg border"
-                "border-light border-2 shadow-lg",
+                " border-light border-2 shadow-lg",
             "style": "color:white;"
         })
     )
@@ -155,7 +155,7 @@ class IngredientNameSearchForm(forms.Form):
             "placeholder": "Search by ingredient name",
             "class":
                 "form-control form-control-lg border"
-                "border-light border-2 shadow-lg",
+                " border-light border-2 shadow-lg",
             "style": "color:white;"
         })
     )
@@ -170,7 +170,7 @@ class DishNameSearchForm(forms.Form):
             "placeholder": "Search by dish name",
             "class":
                 "form-control form-control-lg border"
-                "border-light border-2 shadow-lg",
+                " border-light border-2 shadow-lg",
             "style": "color:white;"
         })
     )
