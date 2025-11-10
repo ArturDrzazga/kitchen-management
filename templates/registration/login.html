@@ -34,6 +34,11 @@
               </div>
             </div>
             <div class="card-body">
+
+              {% if form.errors %}
+                <p class="mt-4 text-center text-danger">Your credentials are invalid</p>
+              {% endif %}
+
               <form role="form" method="post" action="" class="text-center">
                 {% csrf_token %}
 
