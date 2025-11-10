@@ -38,12 +38,15 @@ class DishForm(forms.ModelForm):
                 "class": "form-control border border-dark border-2 shadow-lg"}, ),
         }
 
-    def clean_price(self):
-        return validate_price(self.cleaned_data["price"])
+    def validate_price_greater_than_zero(self, price):
+        if price <= 0 and price is not None:
+            raise ValidationError("Price must be greater than 0")
 
-def validate_price(price):
-    if price <= 0:
-        raise ValidationError("Price must be greater than 0")
+    def clean_price(self):
+        price = self.cleaned_data["price"]
+        self.validate_price_greater_than_zero(price)
+        return price
+
 
 
 class IngredientForm(forms.ModelForm):
