@@ -38,13 +38,10 @@ class DishForm(forms.ModelForm):
                 "class": "form-control border border-dark border-2 shadow-lg"}, ),
         }
 
-    def validate_price_greater_than_zero(self, price):
-        if price <= 0 and price is not None:
-            raise ValidationError("Price must be greater than 0")
-
     def clean_price(self):
-        price = self.cleaned_data["price"]
-        self.validate_price_greater_than_zero(price)
+        price = self.cleaned_data.get("price")
+        if price is not None and price <= 0:
+            raise ValidationError("Price must be greater than 0")
         return price
 
 
@@ -86,9 +83,6 @@ class CookCreationForm(UserCreationForm):
                 "class": "form-control form-control-lg border border-dark border-2 shadow-lg"}),
         }
 
-    def clean_years_of_experience(self):
-        return validate_years_of_experience(self.cleaned_data["years_of_experience"])
-
 
 class CookUpdateForm(forms.ModelForm):
     class Meta:
@@ -99,23 +93,13 @@ class CookUpdateForm(forms.ModelForm):
             "years_of_experience": forms.NumberInput(attrs={
                 "type": "number",
                 "min": 0,
-                "class": "form-control form-control-lg border border-dark border-2 shadow-lg"}),
+                "class": "form-control form-control-lg border border-dark border-2 shadow-lg",}),
             "first_name": forms.TextInput(attrs={
                 "class": "form-control form-control-lg border border-dark border-2 shadow-lg"}),
             "last_name": forms.TextInput(attrs={
                 "class": "form-control form-control-lg border border-dark border-2 shadow-lg"}),
         }
 
-    def clean_years_of_experience(self):
-        return validate_years_of_experience(self.cleaned_data["years_of_experience"])
-
-
-def validate_years_of_experience(years_of_experience):
-    if years_of_experience < 0:
-        raise ValidationError("Years of experience must be greater or equal 0")
-
-
-    return years_of_experience
 
 class CookNameSearchForm(forms.Form):
     name = forms.CharField(
