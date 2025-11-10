@@ -1,5 +1,5 @@
 from django.contrib.auth import get_user_model
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import Q
 from django.shortcuts import render
 from django.urls import reverse_lazy, reverse
@@ -34,19 +34,19 @@ class TypesOfDishesListView(generic.ListView):
     paginate_by = 8
 
 
-class TypesOfDishesCreateView(generic.CreateView):
+class TypesOfDishesCreateView(LoginRequiredMixin, generic.CreateView):
     model = DishType
     form_class = DishTypeForm
     success_url = reverse_lazy("kitchen_app:dishtype-list")
 
 
-class TypesOfDishesUpdateView(generic.UpdateView):
+class TypesOfDishesUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = DishType
     form_class = DishTypeForm
     success_url = reverse_lazy("kitchen_app:dishtype-list")
 
 
-class TypesOfDishesDeleteView(generic.DeleteView):
+class TypesOfDishesDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = DishType
     success_url = reverse_lazy("kitchen_app:dishtype-list")
 
@@ -75,7 +75,7 @@ class DishesListView(generic.ListView):
         return queryset
 
 
-class DishesDetailView(generic.DetailView):
+class DishesDetailView(LoginRequiredMixin, generic.DetailView):
     model = Dish
 
     def get_queryset(self):
@@ -92,13 +92,13 @@ class DishesDetailView(generic.DetailView):
 
 
 
-class DishesCreateView(generic.CreateView):
+class DishesCreateView(LoginRequiredMixin, generic.CreateView):
     model = Dish
     form_class = DishForm
     success_url = reverse_lazy("kitchen_app:dish-list")
 
 
-class DishesUpdateView(generic.UpdateView):
+class DishesUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Dish
     form_class = DishForm
     success_url = reverse_lazy("kitchen_app:dish-list")
@@ -110,7 +110,7 @@ class DishesUpdateView(generic.UpdateView):
 
 
 
-class DishesDeleteView(generic.DeleteView):
+class DishesDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Dish
     success_url = reverse_lazy("kitchen_app:dish-list")
 
@@ -139,19 +139,19 @@ class IngredientsListView(generic.ListView):
         return queryset
 
 
-class IngredientsCreateView(generic.CreateView):
+class IngredientsCreateView(LoginRequiredMixin, generic.CreateView):
     model = Ingredient
     form_class = IngredientForm
     success_url = reverse_lazy("kitchen_app:ingredient-list")
 
 
-class IngredientsUpdateView(generic.UpdateView):
+class IngredientsUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Ingredient
     form_class = IngredientForm
     success_url = reverse_lazy("kitchen_app:ingredient-list")
 
 
-class IngredientsDeleteView(generic.DeleteView):
+class IngredientsDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Ingredient
     success_url = reverse_lazy("kitchen_app:ingredient-list")
 
@@ -180,7 +180,7 @@ class CooksListView(generic.ListView):
         return queryset
 
 
-class CooksDetailView(generic.DetailView):
+class CooksDetailView(LoginRequiredMixin, generic.DetailView):
     model = Cook
 
     def get_context_data(self, **kwargs):
@@ -193,13 +193,13 @@ class CooksDetailView(generic.DetailView):
         return context
 
 
-class CooksCreateView(generic.CreateView):
+class CooksCreateView(LoginRequiredMixin, generic.CreateView):
     model = Cook
     form_class = CookCreationForm
     success_url = reverse_lazy("kitchen_app:cook-list")
 
 
-class CooksUpdateView(generic.UpdateView):
+class CooksUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Cook
     form_class = CookUpdateForm
 
@@ -209,6 +209,6 @@ class CooksUpdateView(generic.UpdateView):
         return reverse("kitchen_app:cook-detail", kwargs={"pk": cook_pk})
 
 
-class CooksDeleteView(generic.DeleteView):
+class CooksDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Cook
     success_url = reverse_lazy("kitchen_app:cook-list")
