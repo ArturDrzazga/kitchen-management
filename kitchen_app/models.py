@@ -34,4 +34,4 @@ class Dish(models.Model):
     cooks = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name="dishes")
 
     def __str__(self):
-        return self.name
+        return f"{self.name} {self.price}"
